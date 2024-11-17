@@ -1,0 +1,18 @@
+import pgzrun
+TITLE="Merry Christmas"
+HEIGHT=650
+WIDTH=870
+marquee_box=Rect(0,0,870,80)
+marquee_box.move_ip(0,0)
+marqueemsg=""
+def draw():
+    marqueemsg="Merry Christmas!"
+    screen.draw.filled_rect(marquee_box,"green")
+    screen.draw.textbox(marqueemsg,marquee_box,color="red",shadow=(0.5,0.5),scolor="green")
+def movemarquee():
+    marquee_box.x-=2
+    if marquee_box.right<0:
+        marquee_box.left=WIDTH
+def update():
+    movemarquee()
+pgzrun.go()
